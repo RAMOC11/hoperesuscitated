@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 80% 4%;
+    --background-secondary: 270 70% 17%;
+    --foreground: 0 0% 100%;
+    --card: 270 60% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 270 60% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 270 70% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 50% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 270 30% 20%;
+    --muted-foreground: 270 30% 70%;
+    --accent: 280 100% 80%;
+    --accent-foreground: 270 80% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 30% 25%;
+    --input: 270 30% 25%;
+    --ring: 270 70% 58%;
+    --radius: 1.125rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#0D0221] text-white antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #9D4EDD 0%, #E0AAFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-purple {
+    background: linear-gradient(135deg, #0D0221 0%, #2D0A4E 50%, #5A189A 100%);
+  }
+  
+  .bg-gradient-banner {
+    background: linear-gradient(90deg, #9D4EDD 0%, #E0AAFF 100%);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#9D4EDD] to-[#E0AAFF] text-white px-8 py-4 rounded-full font-display font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_30px_rgba(157,78,221,0.5)] transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-white/30 text-white px-8 py-4 rounded-full font-display font-bold text-sm uppercase tracking-wider hover:bg-white/10 transition-all duration-300;
+  }
+  
+  .section-padding {
+    @apply px-6 lg:px-12 xl:px-20;
+  }
+  
+  .micro-label {
+    @apply font-mono text-xs uppercase tracking-[0.14em] text-[#C77DFF];
+  }
+  
+  .card-dark {
+    @apply bg-[#1a0b2e]/80 backdrop-blur-sm rounded-[18px] border border-white/10;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0221;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5A189A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9D4EDD;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(157, 78, 221, 0.4);
+  color: white;
+}
+
+/* Animation classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(157, 78, 221, 0.8);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
